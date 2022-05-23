@@ -1,7 +1,6 @@
 package com.casadocodigo.loja.controllers;
 
 import com.casadocodigo.loja.domain.PriceType;
-import com.casadocodigo.loja.domain.ShoppingCart;
 import com.casadocodigo.loja.dto.ShoppingCartDTO;
 import com.casadocodigo.loja.service.ShoppingCartService;
 import lombok.RequiredArgsConstructor;
@@ -30,7 +29,6 @@ public class ShoppingCartController {
 	public void remove(Integer productId, PriceType priceType) {
 		shoppingCartService.deleteById(productId);
 	}
-
 
 }
 
