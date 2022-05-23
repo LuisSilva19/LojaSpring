@@ -1,4 +1,4 @@
-//package com.casadocodigo.loja.controllers;
+package com.casadocodigo.loja.controllers;
 //
 //import com.casadocodigo.loja.service.ShoppingCartService;
 //import com.casadocodigo.loja.domain.PaymentData;
@@ -55,14 +55,3 @@
 //	}
 //
 //}
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
