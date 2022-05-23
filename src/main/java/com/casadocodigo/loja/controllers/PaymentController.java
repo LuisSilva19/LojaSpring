@@ -4,16 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/pagamento")
+@RequestMapping("payment")
 @Controller
 @RequiredArgsConstructor
-public class PagamentoController {
+public class PaymentController {
 
-
-//	private ShoppingCartService carrinho;
-//	private RestTemplate restTemplate;
-//	private MailSender sender;
-//
 //	@RequestMapping(value="/finalizar", method=RequestMethod.POST)
 //	public Callable<ModelAndView> finalizar(
 //			RedirectAttributes model) {
