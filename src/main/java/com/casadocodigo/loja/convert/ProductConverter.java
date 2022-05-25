@@ -2,19 +2,31 @@ package com.casadocodigo.loja.convert;
 
 import com.casadocodigo.loja.domain.Product;
 import com.casadocodigo.loja.dto.ProductDTO;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ProductConverter {
     public ProductDTO getProductDTO(Product product){
         return ProductDTO.builder()
                 .id(product.getId())
-                .shoppingCart(product.getShoppingCart())
+                .productsShoppingCart(product.getProductsShoppingCart())
                 .amount(product.getAmount())
                 .description(product.getDescription())
                 .prices(product.getPrices())
-                .pages(product.getPages())
                 .releaseDate(product.getReleaseDate())
-                .summaryPath(product.getSummaryPath())
                 .title(product.getTitle())
+                .build();
+    }
+
+    public Product getProduct(ProductDTO productDTO){
+        return Product.builder()
+                .id(productDTO.getId())
+                .productsShoppingCart(productDTO.getProductsShoppingCart())
+                .amount(productDTO.getAmount())
+                .description(productDTO.getDescription())
+                .prices(productDTO.getPrices())
+                .releaseDate(productDTO.getReleaseDate())
+                .title(productDTO.getTitle())
                 .build();
     }
 }

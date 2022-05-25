@@ -28,7 +28,11 @@ public class ShoppingCart {
     private LocalDate deleteAt;
 
     @ManyToMany
-    private List<Product> product;
+    @JoinTable(name = "shoppingcart_product",
+            joinColumns = @JoinColumn(name = "shopping_cart_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id"))
+    private List<Product> products;
+
     private PriceType priceType;
 
 }

@@ -2,7 +2,7 @@ package com.casadocodigo.loja.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -13,34 +13,34 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+@Builder
 @EntityListeners(AuditingEntityListener.class)
+@Table(name = "product")
 public class Product {
 
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String title;
 	private String description;
-	private Integer pages;
-	private String summaryPath;
 	private Integer amount;
-	private LocalDate releaseDate;
 	@CreatedDate
-	private LocalDate createdAt;
+	private Date createdAt;
 	@LastModifiedDate
 	private LocalDate lastModifiedAt;
 	private LocalDate deleteAt;
-
-	@ManyToMany
-	private ShoppingCart shoppingCart;
+	private LocalDate releaseDate;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "product")
+	@ManyToMany(mappedBy = "products")
+	private List<ShoppingCart> productsShoppingCart;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Price> prices;
 }
-
-
-
 
 
 

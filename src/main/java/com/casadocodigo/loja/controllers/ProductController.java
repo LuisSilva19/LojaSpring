@@ -1,6 +1,5 @@
 package com.casadocodigo.loja.controllers;
 
-import com.casadocodigo.loja.domain.Product;
 import com.casadocodigo.loja.dto.ProductDTO;
 import com.casadocodigo.loja.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -20,13 +19,18 @@ public class ProductController {
 	public ProductDTO add(@RequestBody ProductDTO productDTO, @RequestParam("file") MultipartFile file) {
 		return productService.record(productDTO, file);
 	}
+
+	@PostMapping("record")
+	public ProductDTO add(@RequestBody ProductDTO productDTO) {
+		return productService.record(productDTO);
+	}
 	
 	@GetMapping("/{productId}")
 	public ProductDTO getProductById(@PathVariable("productId")Integer productId) {
 		return productService.getProductById(productId);
 	}
 	
-	@GetMapping()
+	@GetMapping("/get")
 	public List<ProductDTO> listProducts() {
 		return productService.getProducts();
 	}
