@@ -2,13 +2,15 @@ package com.casadocodigo.loja.convert;
 
 import com.casadocodigo.loja.domain.ShoppingCart;
 import com.casadocodigo.loja.dto.ShoppingCartDTO;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ShoppingCartConverter {
     public ShoppingCartDTO getShoppingCartDTO(ShoppingCart shoppingCart){
         return ShoppingCartDTO.builder()
                 .id(shoppingCart.getId())
                 .priceType(shoppingCart.getPriceType())
-                .product(shoppingCart.getProduct())
+                .product(shoppingCart.getProducts())
                 .build();
     }
 
@@ -16,7 +18,7 @@ public class ShoppingCartConverter {
         return ShoppingCart.builder()
                 .id(shoppingCartDTO.getId())
                 .priceType(shoppingCartDTO.getPriceType())
-                .product(shoppingCartDTO.getProduct())
+                .products(shoppingCartDTO.getProduct())
                 .build();
     }
 }

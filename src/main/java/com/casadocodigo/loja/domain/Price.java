@@ -17,7 +17,7 @@ public class Price {
 	private PriceType type;
 
 	@ManyToOne
-	@JoinColumn(name = "period_id")
+	@JoinColumn(name = "product_id")
 	private Product product;
 }
 

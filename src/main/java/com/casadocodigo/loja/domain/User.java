@@ -11,14 +11,14 @@ import java.util.List;
 @Data
 public class User {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String email;
-	private String password;
-	private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String email;
+    private String password;
+    private String name;
 
-	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
-	private List<Role> roles = new ArrayList<>();
+    @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
+    private List<Role> roles = new ArrayList<>();
 
 }

@@ -6,7 +6,7 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.casadocodigo.loja.domain.Attachment;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayInputStream;
@@ -15,12 +15,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.UUID;
 
-@Component
+@Service
 @RequiredArgsConstructor
-public class FileSaver {
-
+public class FileService {
+/*
 	private final AmazonS3 amazonS3;
-
 	private static final String BUCKET="[NOME DO MEU BUCKET]";
 
 	public Attachment write(MultipartFile file) {
@@ -85,7 +84,7 @@ public class FileSaver {
 
 		return attachment(defaultFileName, key, contentType);
 	}
-
+*/
 }
 
 

@@ -9,26 +9,27 @@ import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
-	@Query(value = "select distinct(p) from product p " +
-			"join price on (price.id = product.id", nativeQuery = true)
+	@Query(value = "select * from product ", nativeQuery = true)
 	List<Product> getList();
 
-	@Query(value = "select distinct(p) from product p " +
-			"join price on (price.id = product.id) " +
+	@Query(value = "select distinct(pro) from product pro " +
+			"join price pri on (pri.id = pro.id) " +
 			"where product.id = :productId", nativeQuery = true)
-	Product getProductById(@Param("productId") Integer productId);
+	Optional<Product> getProductById(@Param("productId") Integer productId);
 	
-	@Query(value = "select sum(price.value) from product p " +
-			"join price on (price.id = product.id) " +
-			"where price.type = :priceType ", nativeQuery = true)
+	@Query(value = "select sum(pri.value) from product pro " +
+			"join pri on (pri.id = pro.id) " +
+			"where pri.type = :priceType ", nativeQuery = true)
 	BigDecimal sumPricesByType(@Param("priceType")PriceType priceType);
 
 	@Query(value = "select amount from product where id = :productId", nativeQuery = true)
 	List<Integer> getAmount(@Param("productId")Integer productId);
+
 }
 
 
