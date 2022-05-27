@@ -19,7 +19,7 @@ public class LojaApplication {
 		SpringApplication.run(LojaApplication.class, args);
 
 		/*
-		BasicAWSCredentials creds = new BasicAWSCredentials("AKIATDMEJMNQ3NO43R4S", "lJf0v0z1xS+OGAPFTOY7r1rXbHiqL5I+TsZpmhD9");
+		BasicAWSCredentials creds = new BasicAWSCredentials("", "");
 
 		AmazonS3 amazonS3 = AmazonS3Client.builder()
 				.withRegion("us-east-1")
